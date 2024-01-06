@@ -10,12 +10,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 hydrateRoot(document.getElementById('root'),
-  <React.StrictMode>
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={christmasTheme}>
-        <CssBaseline />
+//   <React.StrictMode>    
+    <BrowserRouter>
         <App />
-      </ThemeProvider>
-    </CacheProvider>
-  </React.StrictMode>
+    </BrowserRouter>  
+//    </React.StrictMode> 
 );
