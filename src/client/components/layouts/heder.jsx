@@ -10,6 +10,7 @@ function NavItem({label, to}) {
 }
 
 function Header() {
+    console.log(useSearch())
 
     const { searchText, setSearchText } = useSearch()
 
