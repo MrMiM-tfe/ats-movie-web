@@ -91,28 +91,11 @@ function SingleMovie() {
 
     const {getSeasons, Seasons} = useSerie()
     const {getComments, Comments, pending} = useComment()
-    const { selectedMovie, setSelectedMovie } = useData()
-    const { getMovie } = useMovie()
+    const { selectedMovie } = useData()
 
-    const {id} = useParams()
-
-    useEffect( async () => {
-        if (!selectedMovie && !id) {
-            navigate('/')
-            return
-        }
-      
-        console.log("id",id);
-        if(!selectedMovie && id) {
-            const movie = await getMovie(id)
-            setSelectedMovie(movie.data)
-        }
-
-        
-        if (selectedMovie?.type === "serie") getSeasons(selectedMovie.id || id)
-    },[selectedMovie])
-
-    console.log("sel", selectedMovie);
+    useEffect(() => {       
+        if (selectedMovie?.type === "serie") getSeasons(selectedMovie.id)
+    },[])
 
     const loadComments = () => {
         getComments(selectedMovie.id)
@@ -125,8 +108,8 @@ function SingleMovie() {
         setSeason(Seasons.find(s => s.id === Seasons[0]?.id))
     }, [Seasons])
 
-    const text = selectedMovie?.description?.replace(/\n/g, '<br>')
-    const aboutText = isExpanded ? text : selectedMovie?.description?.replace(/\n/g, ' -- ')?.slice(0, 90);
+    const text = selectedMovie?.description.replace(/\n/g, '<br>')
+    const aboutText = isExpanded ? text : selectedMovie?.description.replace(/\n/g, ' -- ')?.slice(0, 90);
 
     const handleToggleMore = () => {
         setIsExpanded(!isExpanded);

@@ -257,6 +257,11 @@ p {
   border-radius: 20px;
 }
 
+.favorites .list .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* movies page ----------------------------------------------------- */
 
@@ -275,7 +280,6 @@ p {
 }
 
 /* series page ----------------------------------------------------- */
-
 .series .list .item {
   display: flex;
   align-items: center;
@@ -368,6 +372,39 @@ p {
 }
 
 /* single movie page ----------------------------------------------------- */
+.single-movie-card-bg {
+  position: absolute;
+  z-index: 50;
+  height: 100vh;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-movie-card {
+  padding: 10px;
+  /* margin: ; */
+  border: 2px solid var(--gray-500);
+  border-radius: 10px;
+  overflow-y: scroll;
+  /* position: absolute; */
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  /* left: 50%;
+  top: 50%; */
+  /* transform: translate(-50%,-50%); */
+  height: 90vh;
+  width: 90vw;
+  z-index: 100;
+  background-color: var(--surface-900);
+}
+
 .single-movie {
   text-align: end;
 }
@@ -417,8 +454,27 @@ p {
   font-weight: bolder;
 }
 
+.single-movie .info .play-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .single-movie .info .play {
   margin-top: 10px;
+}
+
+.single-movie .info .watched {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.single-movie .info .watched i{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.single-movie .info .watched .active {
+  color: var(--green-500);
 }
 
 .single-movie .info .play-btn {
@@ -470,6 +526,22 @@ p {
 
 .single-movie .episode .episode-play button:hover {
   background-color: var(--gray-800);
+  cursor: pointer;
+}
+
+.single-movie .episode .watched .active{
+  color: var(--green-500);
+}
+
+.single-movie .episode .watched i {
+  background-color: var(--gray-700);
+  color: var(--gray-300);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
   cursor: pointer;
 }
 
@@ -552,6 +624,17 @@ p {
   background-color: var(--gray-400);
 }
 
+.single-movie .favorite {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.single-movie .favorite i{
+  color: red;
+  font-size: 50px;
+  cursor: pointer;
+}
+
 /* about ----------------------------------------------------- */
 .about h1 {
   text-align: center;
@@ -559,4 +642,18 @@ p {
 }
 .about {
   direction: rtl;
+}
+
+.load-more-div {
+  width: 100%;
+  text-align: center;
+}
+
+.load-more-btn {
+  padding: 10px 30px;
+  border-radius: 30px;
+  border: none;
+  font-weight: bolder;
+  background-color: var(--green-600);
+  color: var(--gray-300);
 }

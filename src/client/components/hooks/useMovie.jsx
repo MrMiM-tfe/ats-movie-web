@@ -52,7 +52,12 @@ const useMovie = () => {
         setPending(false)
     }
 
-    return {Movies, pending, error, getMovies, getMore}
+    const getMovie = async (id) => {
+        const {res, err} = await API(`movie/by/${id}/1`)
+        return res
+    }
+
+    return {Movies, pending, error, getMovies, getMore, getMovie}
 }
 
 export default useMovie
